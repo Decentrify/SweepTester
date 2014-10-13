@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 __author__ = 'alidar'
 
 import argparse
@@ -36,7 +38,7 @@ def main():
             command.command == "search"
             search.do_search(command.host, str(command.port), command.total_requests, command.interval, command.name,
                              command.args)
-    except:
+    except Exception:
         traceback.print_exc()
         pass
 
