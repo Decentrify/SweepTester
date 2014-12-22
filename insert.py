@@ -8,14 +8,14 @@ import webservice
 import utils
 
 
-def do_insert(host, port, total_request, interval, index_name, args):
-
+def do_insert(host, port, total_request, interval, index_name, args, starting_number=0):
     file_name_key = 'fileName'
     logging.info("Starting Insert")
 
     for i in range(total_request):
 
-        new_index_name = index_name + str(i)
+        new_index_name = index_name + str(starting_number)
+        starting_number += 1
 
         add_dict = {'url': "Test URL", file_name_key: new_index_name, 'fileSize': 1, 'language': 'English',
                     'category': 'Video', 'description': 'Test Desc'}

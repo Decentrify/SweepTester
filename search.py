@@ -8,14 +8,16 @@ import webservice
 import utils
 
 
-def do_search(host, port, total_request, interval, index_name, args):
+def do_search(host, port, total_request, interval, index_name, args, append_number_to_index_name=True):
     file_name_key = 'fileNamePattern'
 
     logging.info("Starting Search")
 
     for i in range(total_request):
 
-        new_index_name = index_name + str(i)
+        new_index_name = index_name
+        if append_number_to_index_name:
+            new_index_name += str(i)
 
         name_dict = {file_name_key: new_index_name, 'category': 'Video'}
         args_dict = {}
